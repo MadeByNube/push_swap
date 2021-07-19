@@ -6,7 +6,7 @@ CFLAGS = 	-Wall -Wextra -Werror
 
 RM =		rm -rf
 
-SRCS_C =	../main.c
+SRCS_C =	../push_swap.c utils.c
 
 SRCS =		$(addprefix srcs/, $(SRCS_C))
 
@@ -19,6 +19,7 @@ LIBFT =		libft
 all: $(NAME)
 
 $(NAME): $(OBJS)
+		@echo "hola"
 		@make -C $(LIBFT)
 		@$(CC) $(CFLAGS) -I$(INCLUDES) $(LIBFT)/libft.a $(OBJS) -o $(NAME)
 %.o: %.c
