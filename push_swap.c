@@ -12,48 +12,31 @@
 
 #include "./header/push_swap.h"
 
-
-
 t_node	*create_a_stack(int argc, char **argv)
 {
 	t_node *ret;
 	t_node *tmp;
 	t_node *head;
 	int i;
-	/*
-	if (ft_strchr(argv[i], ' '))
-	{
-		create_several_nodes(argv[i], head);
-	}
-	else
-	{
-		tmp = create_new_node(ft_atoi(argv[1]), NULL);
-		ret = tmp;
-		head = tmp;
-		i = 2;
-	}*/
 
-
-// Me he quedado en pasar los elementos a una lista considerando que hay
-// varios elementos en algún argumento. He pensado que mejor considerar
-// que cada argumento tenga varios posibles valores y hacer eso con todos.
-
+	ret = NULL;
 	head = NULL;
+	tmp = NULL;
+	i = 0;
 	while (i < argc)
 	{
-		if (ft_strchr(argv[i], ' '))
+		if (i == 0)
 		{
-			tmp = create_several_nodes(argv[i], head);
-			ret = tmp;
-			head = tmp;
+			head = create_several_nodes(argv[i], head);
+			tmp = head;
+			while(tmp->before != NULL)
+			{
+				ret = tmp->before;
+				tmp = ret;
+			}
 		}
 		else
-		{
-			tmp = create_new_node(ft_atoi(argv[i]), head);
-			head->next = tmp;
-			tmp->before = head;
-			head = tmp;
-		}
+			head = create_several_nodes(argv[i], head);
 		i++;
 	}
 	return (ret);

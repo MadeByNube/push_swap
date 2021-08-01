@@ -20,9 +20,10 @@ typedef struct s_node
 	struct s_node *next;
 	struct s_node *before;
 }				t_node;
+t_node	*create_several_nodes(char *str, t_node *head);
 t_node	*create_new_node(int num, t_node *before);
 t_node	*create_a_stack(int argc, char **argv);
 void	printlist(t_node *head);
 void	arg_errors(int argc, char **argv);
-
+void	ft_strerror(char *str, int num);
 #endif

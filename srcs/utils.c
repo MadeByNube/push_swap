@@ -12,6 +12,25 @@
 
 #include "../header/push_swap.h"
 
+t_node *create_several_nodes(char *str, t_node *head)
+{
+	char **splitted;
+	t_node *tmp;
+	int i;
+
+	splitted = ft_split(str, ' ');
+	i = 0;
+	while (splitted[i][0])
+	{
+		tmp = create_new_node(ft_atoi(splitted[i]), head);
+		head->next = tmp;
+		tmp->before = head;
+		head = tmp;
+		i++;
+	}
+	return (head);
+}
+
 t_node	*create_new_node(int num, t_node *before)
 {
 	t_node *new_node;
@@ -34,3 +53,10 @@ void	printlist(t_node *head)
 		temp = temp->next;
 	}
 }
+
+void ft_strerror(char *str, int num)
+{
+	ft_putstr_fd(str, ft_strlen(str));
+	exit(num);
+}
+
