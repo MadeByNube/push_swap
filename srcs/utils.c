@@ -6,7 +6,7 @@
 /*   By: cnavarro <cnavarro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:50:23 by cnavarro          #+#    #+#             */
-/*   Updated: 2021/07/19 16:57:24 by cnavarro         ###   ########.fr       */
+/*   Updated: 2021/08/09 15:02:52 by cnavarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node *create_several_nodes(char *str, t_node *head)
 
 	splitted = ft_split(str, ' ');
 	i = 0;
-	while (splitted[i][0])
+	while (splitted[i])
 	{
 		tmp = create_new_node(ft_atoi(splitted[i]), head);
 		head->next = tmp;
@@ -59,4 +59,3 @@ void ft_strerror(char *str, int num)
 	ft_putstr_fd(str, ft_strlen(str));
 	exit(num);
 }
-
